@@ -44,7 +44,7 @@
             <ul class="pagination">
               <% for(var i=0;i<allpage;i++){ %>
                 <% if(current == i){ %>
-                  <li class="active"><a href="/admin/search?page=<%= i+1 %>&key=<%= key %>"><%= i+1 %></a></li>
+                  <li class="active"><a href="/admin/search?page=<%= i+1 %>&key=<%= key %>&origin=<%= origin %>"><%= i+1 %></a></li>
                 <% }else{ %>
                   <li><a href="/admin/search?page=<%= i+1 %>&key=<%= key %>&origin=<%= origin %>"><%= i+1 %></a></li>
                 <% } %>
