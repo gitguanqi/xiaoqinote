@@ -43,6 +43,7 @@ exports.userLogin = (req,res,next) => {
     }
     user.findOne({username:username},function(err,doc) {
         if(doc) {
+            
             if(username != doc.username) {
                 res.json({
                     msg: 'save_fail',
