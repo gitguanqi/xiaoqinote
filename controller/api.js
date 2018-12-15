@@ -72,15 +72,55 @@ exports.LookAllMark = (req,res,next) => {
 //添加便签
 exports.AddMark = (req,res,next) => {
     var token = req.query.token;
-    var title = req.query.title,
-    name = req.query.type,
-    author = req.query.author,
-    content = req.query.content;
+    var title = req.params.title,
+    name = req.params.type,
+    author = req.params.author,
+    content = req.params.content;
     var data = {
         title:title,
         name:name,
         author:author,
         content:content
+    }
+    console.log(data, token);
+    if (data.title == undefined) {
+        res.json({
+            msg: 'find_fail',
+            code: 109,
+            data: {
+                info: '请输入标签标题！'
+            }
+        })
+        return false;
+    }
+    if (data.name == undefined) {
+        res.json({
+            msg: 'find_fail',
+            code: 109,
+            data: {
+                info: '请输入标签类型！'
+            }
+        })
+        return false;
+    }
+    if (data.author == undefined) {
+        res.json({
+            msg: 'find_fail',
+            code: 109,
+            data: {
+                info: '请输入标签作者！'
+            }
+        })
+    }
+    if (data.content == undefined) {
+        res.json({
+            msg: 'find_fail',
+            code: 109,
+            data: {
+                info: '请输入标签内容！'
+            }
+        })
+        return false;
     }
     if(token) {
         Marklist.findOne({title:title},function(err,doc) {
