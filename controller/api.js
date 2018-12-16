@@ -14,6 +14,9 @@ exports.getAllMark = (req,res,next) => {
     }else{
         current = 1;
     }
+    if (author) {
+        author = 'admin'
+    }
     if(token) {
         Marklist.find({author:author}).skip((current-1)*pagesize).limit(pagesize).populate('name','name').then(docs => {
             Marklist.find({author:author}).countDocuments().then(num => {
