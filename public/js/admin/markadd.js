@@ -2,7 +2,7 @@
 $(function(){
     $('form').on('submit',function(e){
         e.preventDefault();
-        var nameReg = /[0-9A-Za-z]/g;
+        var nameReg = /[\d\s]/;
         if(getCookie('admin_cookie')) {
             var name =  JSON.parse(getCookie('admin_cookie')).username;
             var token =  JSON.parse(getCookie('admin_cookie')).token;

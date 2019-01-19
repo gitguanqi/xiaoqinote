@@ -4,34 +4,37 @@ var Type = require('../model/Type');
 
 // 获取所有的便签
 exports.getAllMark = (req,res,next) => {
+    console.log(req.query);
     var token = req.query.token;
     var page = req.query.page;
-    var author = req.query.author;
-    var current;
+    var author = req.query.author || 'admin';
     var pagesize = 5;
-    if(page) {
-        current = page;
-    }else{
-        current = 1;
-    }
-    if (author) {
-        author = 'admin'
-    }
+    var current = page || 1;
     if(token) {
         Marklist.find({author:author}).skip((current-1)*pagesize).limit(pagesize).populate('name','name').then(docs => {
-            Marklist.find({author:author}).countDocuments().then(num => {
+            if (!docs) { 
                 res.json({
-                    msg: 'get_succ',
-                    code: 200,
+                    msg: 'get_fali',
+                    code: 404,
                     data: {
-                        info: '获取成功！',
-                        list: docs,
-                        count: num,
-                        current: current-1,
-                        allpage: Math.ceil(num/pagesize)
+                      info: 'No data！'
                     }
                 })
-            })
+            } else {
+                Marklist.find({author:author}).countDocuments().then(num => {
+                    res.json({
+                        msg: 'get_succ',
+                        code: 200,
+                        data: {
+                            info: '获取成功！',
+                            list: docs,
+                            count: num,
+                            current: current-1,
+                            allpage: Math.ceil(num/pagesize)
+                        }
+                    })
+                })
+            }
         })
     }else{
         res.json({
