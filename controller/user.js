@@ -110,8 +110,7 @@ exports.logoutUser = (req,res,next) => {
                     }
                 })
             }
-            // req.session.loginUser = null;
-            res.clearCookie('skey');
+            req.session = null;
         })
     }else{
         res.json({
