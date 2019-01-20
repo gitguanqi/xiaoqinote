@@ -22,8 +22,17 @@
                                 <option value="<%= item._id %>"><%= item.name %></option>
                             <% }) %>
                         </select>
-                    </div>
-                    <input type="hidden" name="author" class="author">
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label for="author" class="col-sm-2 control-label">作者：</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" name="author" id="author">
+                            <% user.forEach(function(item,index){ %>
+                                <option value="<%= item.username %>"><%= item.username %></option>
+                            <% }) %>
+                        </select>
+                    </div>    
                 </div>
                 <div class="form-group">
                     <label for="content" class="col-sm-2 control-label">便签内容：</label>

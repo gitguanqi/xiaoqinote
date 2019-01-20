@@ -3,11 +3,6 @@ $(function(){
     $('form').on('submit',function(e){
         e.preventDefault();
         var nameReg = /[\d\s]/;
-        if(getCookie('admin_cookie')) {
-            var name =  JSON.parse(getCookie('admin_cookie')).username;
-            var token =  JSON.parse(getCookie('admin_cookie')).token;
-            $('.author').attr('value',name);
-        }
         if($('#title').val() == '') {
             layer.alert('便签标题不能为空！', {
                 icon: 2,
@@ -24,6 +19,13 @@ $(function(){
         }
         if($('#type').val() == '') {
             layer.alert('便签分类不能为空！', {
+                icon: 2,
+                skin: 'layer-ext-moon'
+            })
+            return false;
+        }
+        if($('#user').val() == '') {
+            layer.alert('作者不能为空！', {
                 icon: 2,
                 skin: 'layer-ext-moon'
             })
