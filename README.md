@@ -1,2 +1,2 @@
-# gmark
-小奇便签，express+mongoose+bootstrap+vue前后台便签WebApp！
+# 小奇便签
+基于express+mongoose+bootstrap+vue前后台便签WebApp！
