@@ -43,7 +43,7 @@ $ npm install
 运行mongodb
 
 ```
-$ mongod --dbpath=<文件file绝对路径>\db
+$ mongod --dbpath=D:\xqnote\db
 $ mongo
 ```
 
@@ -56,7 +56,7 @@ $ npm start
 如果出现下面的代码，说明运行成功。
 
 ```
-> markapp@0.0.0 start D:\And\documents\webdev\nodejs\xqnote
+> markapp@0.0.0 start D:\xqnote
 > node ./bin/www
 
 database connect succ!
