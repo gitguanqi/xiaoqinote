@@ -9,9 +9,9 @@ This is a note management system based on Nodejs and MongoDB.
 
 ## Project Part api
 
-**api request address unified prefix: ** `http://localhost:3000`
+**api request address unified prefix:** `http://localhost:3000`
 
-** For example **: Note background setting: `/admin/set` is this, then api is `http://localhost:3000/admin/set`
+**For example**: Note background setting: `/admin/set` is this, then api is `http://localhost:3000/admin/set`
 
 + Notes background editing: `/admin/set/edit`
 + Notes background editing: `/admin/set/edit`
