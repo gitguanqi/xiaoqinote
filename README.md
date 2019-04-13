@@ -58,9 +58,3 @@ Background user name: admin, password: 123456
 Front end development one ~
 
 Interested to follow [@gitguanqi](https://github.com/gitguanqi)
-
-## License
-
-[MIT License](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2019 gitguanqi
