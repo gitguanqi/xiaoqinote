@@ -12,16 +12,25 @@ const ShowUserList = (req,res,next) => {
     }
     User.find({}).skip((current-1)*pagesize).limit(pagesize).then(docs => {
       if(docs) {
-        User.countDocuments().then(num => {
-          if(num) {
-            res.render('userlist',{
-              res: docs,
-              count: num,
-              current: current-1,
-              allpage: Math.ceil(num/pagesize)
-            });
-          }
-        })
+        if(docs.length === 0) {
+          res.render('api',{
+            res: [],
+            count: 0,
+            current: 1,
+            allpage: 1
+          });
+        } else {
+          User.countDocuments().then(num => {
+            if(num) {
+              res.render('userlist',{
+                res: docs,
+                count: num,
+                current: current-1,
+                allpage: Math.ceil(num/pagesize)
+              });
+            }
+          })
+        }
       }
     })
 }

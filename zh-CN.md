@@ -9,26 +9,13 @@
 
 ## 项目部分api
 
-**api请求地址统一前缀：** `http://localhost:3000`
+**api请求地址统一前缀：** `http://localhost:3000/api`
 
-**例如**：便签后台设置: `/admin/set`是这个，那么api就是`http://localhost:3000/admin/set`
-
-+ 便签后台编辑: `/admin/set/edit`
-+ 便签后台编辑: `/admin/set/edit`
-+ 便签后台添加: `/admin/set/add`
-+ 便签后台添加: `/admin/set/add`
-+ 便签后台删除管理员: `/admin/set/del`
-+ 便签后台便签搜索: `/admin/search`
-+ 后台登录: `/admin/login`
-+ 后台退出: `/admin/logout`
-+ 后台登录: `/admin/login`
-+ 便签列表: `/admin/mark/list`
-+ 便签信息查看: `/admin/mark/info`
-+ 便签添加显示: `/admin/mark/add`
-+ 便签添加操作: `/admin/mark/add`
-+ 便签编辑显示: `/admin/mark/edit`
-+ 便签编辑操作: `/admin/mark/edit`
-+ 便签删除: `/admin/mark/del`
++ 便签列表(`GET`): `/api/mark/list`
++ 便签信息查看(`GET`): `/api/mark/info`
++ 便签添加操作(`POST`): `/api/mark/add`
++ 便签编辑操作(`PUT`): `/api/mark/edit`
++ 便签删除(`DELETE`): `/api/mark/del`
 
 ## 使用说明
 

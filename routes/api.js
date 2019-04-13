@@ -26,22 +26,21 @@ router.get('/del',require('../controller/api_del'));
 router.get('/mark/list',require('../controller/api').getAllMark);
 
 // 查看便签
-router.post('/mark/info',require('../controller/api').LookAllMark);
+router.get('/mark/info',require('../controller/api').LookAllMark);
 
 // 添加便签
 router.post('/mark/add',require('../controller/api').AddMark);
 
 // 编辑便签
-router.post('/mark/edit',require('../controller/api').EditMark);
+router.put('/mark/edit',require('../controller/api').EditMark);
 
 //删除便签
-router.post('/mark/del',require('../controller/api').delMark);
+router.delete('/mark/del',require('../controller/api').delMark);
 
 //获取类型
-router.post('/type',require('../controller/api').getType);
+router.get('/type',require('../controller/api').getType);
 
 //搜索便签
-router.post('/search',require('../controller/api').searchMark);
-
+router.get('/search',require('../controller/api').searchMark);
 
 module.exports = router;

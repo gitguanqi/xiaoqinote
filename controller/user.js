@@ -2,13 +2,34 @@ var user = require('../model/User');
 
 // 用户注册
 exports.userReg = (req,res,next) => {
-    var username = req.query.username;
-    var password = req.query.password;
+    var username = req.body.username;
+    var password = req.body.password;
     var data = {
         username:username,
         password:password
     }
+    if (!data.username) {
+        res.json({
+            msg: 'save_fail',
+            code: 109,
+            data: {
+                info: '用户名称不能为空！'
+            }
+        })
+    }
+    if (!data.password) {
+        res.json({
+            msg: 'save_fail',
+            code: 109,
+            data: {
+                info: '用户密码不能为空！'
+            }
+        })
+    }
     user.findOne({username:username},function(err,doc) {
+        if(err) {
+            return res.redirect('/user/reg')
+        }
         if(doc) {
             res.json({
                 msg: 'save_fail',

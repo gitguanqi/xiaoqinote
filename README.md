@@ -9,26 +9,13 @@ This is a note management system based on Nodejs and MongoDB.
 
 ## Project Part api
 
-**api request address unified prefix:** `http://localhost:3000`
+**api request address unified prefix:** `http://localhost:3000/api`
 
-**For example**: Note background setting: `/admin/set` is this, then api is `http://localhost:3000/admin/set`
-
-+ Notes background editing: `/admin/set/edit`
-+ Notes background editing: `/admin/set/edit`
-+ Note background add: `/admin/set/add`
-+ Note background add: `/admin/set/add`
-+ Delete the administrator in the background: `/admin/set/del`
-+ Scratch backstage search: `/admin/search`
-+ Background login: `/admin/login`
-+ Background exit: `/admin/logout`
-+ Background login: `/admin/login`
-+ Notes list: `/admin/mark/list`
-+ Notes information view: `/admin/mark/info`
-+ Note added to display: `/admin/mark/add`
-+ Note add operation: `/admin/mark/add`
-+ Notes edit display: `/admin/mark/edit`
-+ Note editing operation: `/admin/mark/edit`
-+ Note deletion: `/admin/mark/del`
++ Notes list(`GET`): `/api/mark/list`
++ Notes information view(`GET`): `/api/mark/info`
++ Note added to display(`POST`): `/api/mark/add`
++ Note editing operation(`PUT`): `/api/mark/edit`
++ Note deletion(`DELETE`): `/api/mark/del`
 
 ## Instructions for use
 

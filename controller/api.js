@@ -4,7 +4,6 @@ var Type = require('../model/Type');
 
 // 获取所有的便签
 exports.getAllMark = (req,res,next) => {
-    console.log(req.query);
     var token = req.query.token;
     var page = req.query.page;
     var author = req.query.author || 'admin';
@@ -78,30 +77,19 @@ exports.LookAllMark = (req,res,next) => {
 //添加便签
 exports.AddMark = (req,res,next) => {
     var token = req.query.token;
-    var title = req.params.title,
-    name = req.params.type,
-    author = req.params.author,
-    content = req.params.content;
+    var title = req.body.title,
+    name = req.body.name,
+    author = req.body.author,
+    content = req.body.content;
     var data = {
         title:title,
         name:name,
         author:author,
         content:content
     }
-    console.log(data, token);
-    if (data.title == undefined) {
+    if(!data.title) {
         res.json({
-            msg: 'find_fail',
-            code: 109,
-            data: {
-                info: '请输入标签标题！'
-            }
-        })
-        return false;
-    }
-    if (data.name == undefined) {
-        res.json({
-            msg: 'find_fail',
+            msg: 'add_fail',
             code: 109,
             data: {
                 info: '请输入标签类型！'
@@ -109,18 +97,28 @@ exports.AddMark = (req,res,next) => {
         })
         return false;
     }
-    if (data.author == undefined) {
+    if (!data.name) {
         res.json({
-            msg: 'find_fail',
+            msg: 'add_fail',
+            code: 109,
+            data: {
+                info: '请输入标签类型！'
+            }
+        })
+        return false;
+    }
+    if (!data.author) {
+        res.json({
+            msg: 'add_fail',
             code: 109,
             data: {
                 info: '请输入标签作者！'
             }
         })
     }
-    if (data.content == undefined) {
+    if (!data.content) {
         res.json({
-            msg: 'find_fail',
+            msg: 'add_fail',
             code: 109,
             data: {
                 info: '请输入标签内容！'
@@ -132,7 +130,7 @@ exports.AddMark = (req,res,next) => {
         Marklist.findOne({title:title},function(err,doc) {
             if(doc) {
                 res.json({
-                    msg: 'find_fail',
+                    msg: 'add_fail',
                     code: 109,
                     data: {
                         info: '便签已存在！'
@@ -142,7 +140,7 @@ exports.AddMark = (req,res,next) => {
                 Marklist.create(data).then((doc)=>{
                     if(doc) {
                         res.json({
-                            msg: 'find_succ',
+                            msg: 'add_succ',
                             code: 200,
                             data: {
                                 info: '便签添加成功！'
@@ -166,15 +164,66 @@ exports.AddMark = (req,res,next) => {
 // 编辑便签
 exports.EditMark = (req,res,next) => {
     var token = req.query.token;
-    var id = req.query.id,
-    title = req.query.title,
-    content = req.query.content,
-    name = req.query.type;
+    var id = req.body.id,
+    title = req.body.title,
+    name = req.body.name,
+    author = req.body.author,
+    content = req.body.content;
     var data = {
         title:title,
-        content:content,
-        name:name
-    };
+        name: name,
+        author:author,
+        content:content
+    }
+    if(!id) {
+        res.json({
+            msg: 'add_fail',
+            code: 109,
+            data: {
+                info: '请输入标签id！'
+            }
+        })
+        return false;
+    }
+    if(!data.title) {
+        res.json({
+            msg: 'add_fail',
+            code: 109,
+            data: {
+                info: '请输入标签类型！'
+            }
+        })
+        return false;
+    }
+    if (!data.name) {
+        res.json({
+            msg: 'add_fail',
+            code: 109,
+            data: {
+                info: '请输入标签类型！'
+            }
+        })
+        return false;
+    }
+    if (!data.author) {
+        res.json({
+            msg: 'add_fail',
+            code: 109,
+            data: {
+                info: '请输入标签作者！'
+            }
+        })
+    }
+    if (!data.content) {
+        res.json({
+            msg: 'add_fail',
+            code: 109,
+            data: {
+                info: '请输入标签内容！'
+            }
+        })
+        return false;
+    }
     if(token) {
         Marklist.updateOne({_id: id},data).then( doc => {
             if(doc) {
@@ -202,8 +251,18 @@ exports.EditMark = (req,res,next) => {
 exports.delMark = (req,res,next) => {
     var token = req.query.token;
     var id = req.query.id;
+    if(!id) {
+        res.json({
+            msg: 'del_fail',
+            code: 200,
+            data: {
+                info: '标签id不能为空！'
+            }
+        })
+        return false;
+    }
     if(token) {
-        Marklist.remove({_id:id}).then((doc)=>{
+        Marklist.deleteOne({_id:id}).then((doc)=>{
             if(doc) {
                 res.json({
                     msg: 'get_succ',
