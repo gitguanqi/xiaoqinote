@@ -58,9 +58,3 @@ database connect succ!
 前端开发一枚~ 
 
 感兴趣可以关注[@gitguanqi](https://github.com/gitguanqi)
-
-## License
-
-[MIT License](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2019 gitguanqi
