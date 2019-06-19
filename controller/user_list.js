@@ -13,7 +13,7 @@ const ShowUserList = (req,res,next) => {
     User.find({}).skip((current-1)*pagesize).limit(pagesize).then(docs => {
       if(docs) {
         if(docs.length === 0) {
-          res.render('api',{
+          res.render('userlist',{
             res: [],
             count: 0,
             current: 1,

@@ -9,6 +9,7 @@ exports.LoginSet = (req,res,next) => {
     var username = req.body.username,
         password = req.body.password;
     Admin.findOne({username}).then(doc => {
+        console.log(doc);
         if(doc) {
             if(username != doc.username) {
                 res.json({
