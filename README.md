@@ -1,60 +1,81 @@
-﻿## XiaoQi Note WebApp
+# XQ 便 贴
 
-This is a note management system based on Nodejs and MongoDB.
+> This is the documentation for this project, a note project about Vue + Node development!
 
-## Document Description
+[Chinese document](./zh-CN.md)
 
-+ [English document](README.md)
-+ [Chinese documentation](zh-CN.md)
+## table of Contents
 
-## Project Part api
++ Security
++ Background
++ Installation
++ Usage
++ API
++ Contribution
++ Agreement
 
-**api request address unified prefix:** `http://localhost:3000/api`
+## Safety
 
-+ Notes list(`GET`): `/api/mark/list`
-+ Notes information view(`GET`): `/api/mark/info`
-+ Note added to display(`POST`): `/api/mark/add`
-+ Note editing operation(`PUT`): `/api/mark/edit`
-+ Note deletion(`DELETE`): `/api/mark/del`
+This project mainly uses the following technology stacks:
 
-## Instructions for use
++ Front-end adopts [Vuejs](https://cn.vuejs.org) open source JS framework
++ Backend adopts [Nodejs](https://nodejs.org)
++ The database is built using [mongoDB](https://www.mongodb.com/),
 
-Download the project file to the local and install the dependencies.
+The theme is self-designed.
 
-```
-$ git clone https://github.com/gitguanqi/xqnote.git
-$ cd xqnote
-$ npm install
-```
+No program security issues have been found at this time. If you have any questions, please mention [Suggestions](https://github.com/gitguanqi/xqnote/issues/new).
 
-Running mongodb
+## Background
 
-```
-$ mongod --dbpath=D:\xqnote\db
-$ mongo
-```
+This repository records a project in which I learned vue + node + mongodb!
 
-Running the node program
+## Installation
 
-```
-$ npm start
-```
+```sh
+# clone
+git clone https://github.com/gitguanqi/xqnote.git xqnote
+cd xqnote
 
-If the following code appears, the operation is successful.
-
-```
-> markapp@0.0.0 start D:\xqnote
-> node ./bin/www
-
-Database connect succ!
+# dev
+npm run start
 ```
 
-Enter `http://localhost:3000` in the browser to view it.
+Open `http: // localhost: 3000` to see it.
 
-Background user name: admin, password: 123456
+The database uses mongodb
 
-## About the author
+The connection method is as follows:
 
-Front end development one ~
+```sh
+cd xqnote
+mkdir db
+mongod --dbpath = D: \ xqnote \ db
+mongo
+```
 
-Interested to follow [@gitguanqi](https://github.com/gitguanqi)
+## Usage
+
++ Add routing information in `router`
++ Write logic code in `controller` controller
++ Write data table structure in `model` database
+
+## API
+
+This repository uses Node framework for development, and Vuejs for page compilation and rendering.
+
+API request address uniform prefix: [API](http: // localhost: 3000 / api)
+
++ Note list (GET): `/api/mark/list`
++ Note Information View (GET): `/api/mark/info`
++ Post-it operation (POST): `/ api/mark/add`
++ Note edit operation (PUT): `/api/mark/edit`
++ DELETE: `/api/mark/del`
+
+## Contribution
+
+[@gitguanqi](https://github.com/gitguanqi)
+
+## Agreement
+
+This project follows the [GPL3.0](https://www.gnu.org/licenses/gpl-3.0.html) agreement, Copyright By gitguanqi

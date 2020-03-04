@@ -8,4 +8,5 @@ set -e
 
 git add .
 git commit -m 'dev'
-git push origin master
+git push origin master -f
+git push coding master -f
