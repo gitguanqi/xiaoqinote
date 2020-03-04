@@ -1,4 +1,4 @@
-# XQ 便 贴
+# XQ Note
 
 > This is the documentation for this project, a note project about Vue + Node development!
 
