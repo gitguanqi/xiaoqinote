@@ -70,8 +70,8 @@ exports.SetAdd = (req, res, next) => {
             }
           })
       }else {
-        // Admin.countDocuments().then(num => {
-            // if(num && num <= 5) {          
+        Admin.countDocuments().then(num => {
+            if(num && num <= 5) {          
                 Admin.create({username:username,password:password,level:level},function(err,doc) {
                     if(doc) {
                         res.json({
@@ -83,17 +83,16 @@ exports.SetAdd = (req, res, next) => {
                         })
                     }
                 })
-            // }else{
-            //     res.json({
-            //         msg: 'set_fali',
-            //         code: 101,
-            //         data: {
-            //           info: '管理员数量已满！'
-            //         }
-            //     })
-            // }
-        // })
-        
+            }else{
+                res.json({
+                    msg: 'set_fali',
+                    code: 101,
+                    data: {
+                      info: '管理员数量已满！'
+                    }
+                })
+            }
+        })
       }
     })
 }

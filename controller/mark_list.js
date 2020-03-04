@@ -12,16 +12,25 @@ exports.showMarkList = (req,res,next) => {
     }
     Marklist.find({}).skip((current-1)*pagesize).limit(pagesize).populate('name','name').then(docs => {
         if(docs) {
-            Marklist.countDocuments().then(num => {
-                if(num) {
-                    res.render('marklist',{
-                        list: docs,
-                        count: num,
-                        current: current-1,
-                        allpage: Math.ceil(num/pagesize)
-                    })
-                }
-            })
+            if (docs && docs.length) {
+                Marklist.countDocuments().then(num => {
+                    if(num) {
+                        res.render('marklist',{
+                            list: docs,
+                            count: num,
+                            current: current-1,
+                            allpage: Math.ceil(num/pagesize)
+                        })
+                    }
+                });
+            } else {
+                res.render('marklist',{
+                    list: [],
+                    count: 0,
+                    current: 1,
+                    allpage: 0
+                })
+            }
         }
     })
 };

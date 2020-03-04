@@ -11,7 +11,7 @@ const ShowTypeList = (req,res,next) => {
         current = 1;
     }
     Type.find({}).skip((current-1)*pagesize).limit(pagesize).then(docs => {
-      if(docs) {
+      if(docs && docs.length) {
         Type.countDocuments().then(num => {
           if(num) {
             res.render('typelist',{
@@ -22,6 +22,13 @@ const ShowTypeList = (req,res,next) => {
             });
           }
         })
+      } else {
+        res.render('typelist',{
+          res: [],
+          count: 0,
+          current: 1,
+          allpage: 0
+        });
       }
     })
 }

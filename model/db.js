@@ -2,8 +2,9 @@
  * 用来连接数据库
  * */
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/blog',{
-    useNewUrlParser: true
+mongoose.connect('mongodb://localhost:27017/mark',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 const db = mongoose.connection;
 

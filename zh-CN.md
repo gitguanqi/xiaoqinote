@@ -36,6 +36,7 @@
 # clone
 git clone https://github.com/gitguanqi/xqnote.git xqnote
 cd xqnote
+npm install
 
 # dev
 npm run start

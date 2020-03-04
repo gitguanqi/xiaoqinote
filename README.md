@@ -49,6 +49,7 @@ The connection method is as follows:
 
 ```sh
 cd xqnote
+npm install
 mkdir db
 mongod --dbpath=D:\xqnote\db
 mongo
