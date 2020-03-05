@@ -1,12 +1,15 @@
-#!/usr/bin/env sh
+#!/bin/bash
+#program: this is a auto-deploy app scripts.
+#author: Mr.MarkGuan 
+#date: 2020-03-05
+#version: v0.0.1
 
-# 确保脚本抛出遇到的错误
+# deploy to github
 set -e
-
-# 如果是发布到自定义域名
-# echo 'www.example.com' > CNAME
 
 git add .
 git commit -m 'dev'
 git push origin master
 git push coding master
+
+exit 0
