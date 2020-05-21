@@ -65,7 +65,7 @@ mongo
 
 本仓库采用Node框架进行开发，使用Vuejs进行页面编译渲染。
 
-API请求地址统一前缀： [API](http://localhost:3000/api)
+API请求地址统一前缀： [API](http://localhost:3004/api)
 
 + 便签列表(GET): `/api/mark/list`
 + 便签信息查看(GET): `/api/mark/info`

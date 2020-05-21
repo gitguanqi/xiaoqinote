@@ -41,7 +41,7 @@ cd xqnote
 npm run start
 ```
 
-Open `http://localhost:3000` to see it.
+Open `http://localhost:3004` to see it.
 
 The database uses mongodb
 
@@ -65,7 +65,7 @@ mongo
 
 This repository uses Node framework for development, and Vuejs for page compilation and rendering.
 
-API request address uniform prefix: [API](http://localhost:3000/api)
+API request address uniform prefix: [API](http://localhost:3004/api)
 
 + Note list (GET): `/api/mark/list`
 + Note Information View (GET): `/api/mark/info`
